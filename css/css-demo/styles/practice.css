@@ -1,0 +1,21 @@
+section#contact-info {
+	font-size: .8em;
+}
+section.job {
+	background-color: #e9e5dc;
+	border-radius: 25px;
+	padding: 15px 25px;
+	margin-top: 10px;
+}
+
+ul.responsibilities {
+	font-size: .8em;
+}
+
+h1:hover, h2:hover, h3:hover {
+	color:green;
+}
+
+li:last-child {
+	color: hotpink;
+}
