@@ -1,0 +1,27 @@
+Release 0: Elevator
+
+
+If you are going up: Press the higher button on the panel next to elevator.
+Wait for elevators doors to open. Enter elevator. 
+Find the number of destination floor. Numbers ascend bottom-to-top, left-to-right. Press destination floor button. 
+Wait for screen or panel to indicate when you have reached destination floor.
+On destination floor, exit elevator.
+
+
+If you are going down: Press the lower button on the panel next to elevator.
+Wait for elevators doors to open. Enter elevator. 
+Find the number of destination floor. Numbers ascend bottom-to-top, left-to-right. Press destination floor button. 
+Wait for screen or panel to indicate when you have reached destination floor.
+On destination floor, exit elevator.
+
+Release 1: Real-Life Algorithm - Making Tea
+-Put tea filter in mug
+-Open tea box and put a teaspoon of tea in the tea filter
+-Open top of kettle
+-Turn on faucet and fill but not past fill-line
+-Replace top of kettle
+-Place kettle on stove and turn on stove to "High"
+-When water starts to boil (it will sound like popping bubbles), turn stove off.
+-Pour water into mug until 1/2 inch from top
+-Wait 3 minutes, then remove tea filter.
+
