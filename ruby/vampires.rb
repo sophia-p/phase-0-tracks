@@ -30,22 +30,30 @@ while employees > 0
 		else 
 			health = false
 		end
-
+	allergy = ""
+	loop do
+		puts "List any allergies. Type 'done' when finished."
+		allergy = gets.chomp
+		if allergy == "sunshine" || allergy == "done"
+			break
+		end 
+	end
 
 		case 
+		when (!yearmatch && (!order_g || !health))|| allergy == "sunshine"
+			puts "Probably a vampire."
 		when name == "Drake Cula" || name == "Tu Fang" ||name == "Nosferatu"
 			puts "Definitely a vampire"	
 		when yearmatch && (order_g || health)
 			puts "Probably not a vampire."
 		when !yearmatch && !order_g && !health
 			puts "Almost certainly a vampire."
-		when !yearmatch && (!order_g || !health)
-			puts "Probably a vampire."
 		else 
 			puts "Results inconclusive."
 
 		end
 	employees -= 1
+
 end
 
 
