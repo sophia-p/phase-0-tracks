@@ -41,7 +41,7 @@ puts "Would you like to enroll in the company's health insurance?"
 	when !yearmatch && (!order_g || !health)
 		print "Probably a vampire."
 	else 
-		puts "Inconclusive."
+		puts "Results inconclusive."
 
 	end
 
