@@ -62,6 +62,10 @@ restaurants = {
 			'clams',
 		]
 	},	
-
-
 }
+
+p "Most used ingredients at a pizza place: #{restaurants[:pizza][:most_used_ingredients]}"
+p "Average prices at a fancy restaurant in London: #{restaurants[:fancy][:average_prices]}"
+p "Last year, the most used ingredients at the fish shack were #{restaurants[:fish_shack][:most_used_ingredients]}."
+p "This year, the most used ingredients are #{restaurants[:pizza][:most_used_ingredients].push("salmon","tuna")}."
+p "The location of the bistro has changed: #{restaurants[:bistro][:location]="Lyon, France"}"
