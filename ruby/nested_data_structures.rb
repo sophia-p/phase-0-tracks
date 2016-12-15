@@ -18,7 +18,7 @@ restaurants = {
 		]
 
 	},
-	pizza = {
+	pizza: {
 		location: 'New York, NY, USA',
 		average_prices: {
 			appetizers: 10,
@@ -34,6 +34,34 @@ restaurants = {
 		]
 
 	},
+	fancy: {
+		location: 'London, UK',
+		average_prices: {
+			appetizers: 20,
+			mains: 38,
+			desserts: 15
+		},
+		most_used_ingredients: [
+			'dover sole',
+			'beef',
+			'fennel',
+			'cream',
+		]
+	},
+	fish_shack: {
+		location: 'Newport, RI, USA',
+		average_prices: {
+			appetizers: 12,
+			mains: 26,
+			desserts: 10
+		},
+		most_used_ingredients: [
+			'lobster',
+			'oysters',
+			'crabs',
+			'clams',
+		]
+	},	
 
 
 }
