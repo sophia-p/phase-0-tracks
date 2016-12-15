@@ -42,11 +42,35 @@ app_mash = gets.chomp
 
 p interior_dec
 puts "If you do not need to make any changes, please type 'none'. 
-If you need to make a change, please type the category name."
+If you need to make a change, please type the category."
 	input = gets.chomp
 	if input == "name"
 		puts "Type your name"
 		app_name = gets.chomp
 		interior_dec[:name] = app_name
+	elsif input == "age"
+		puts "Type your age"
+		app_age = gets.chomp.to_i
+		interior_dec[:age] = app_age
+	elsif input == "children"
+		puts "Type the number of children you have."
+		app_children = gets.chomp.to_i
+		interior_dec[:children] = app_children
+	elsif input == "decor theme"
+		puts "Type your decor theme"
+		app_theme = gets.chomp
+		interior_dec[:decor_theme] = app_theme
+	elsif input == "MASH"
+		puts "Are you living your life based on the game MASH?"
+		app_mash = gets.chomp
+		if app_mash == "yes".upcase || app_mash == "yes".capitalize! || app_mash == "yes"
+			app_mash = true #set to true
+		else 
+			app_mash = false
+		end
+		interior_dec[:mash] = app_mash
+	elsif input == "none"
+		
+
 	end
 p interior_dec
