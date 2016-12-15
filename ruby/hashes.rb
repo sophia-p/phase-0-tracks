@@ -43,7 +43,8 @@ app_mash = gets.chomp
 p interior_dec
 puts "If you do not need to make any changes, please type 'none'. 
 If you need to make a change, please type the category name."
-	if gets.chomp = "name"
+	input = gets.chomp
+	if input == "name"
 		puts "Type your name"
 		app_name = gets.chomp
 		interior_dec[:name] = app_name
