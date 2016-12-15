@@ -47,7 +47,7 @@ If you need to make a change, please type the category."
 	if input == "name"
 		puts "Type your name"
 		app_name = gets.chomp
-		interior_dec[:name] = app_name
+		interior_dec[input.to_sym] = app_name
 	elsif input == "age"
 		puts "Type your age"
 		app_age = gets.chomp.to_i
@@ -56,7 +56,7 @@ If you need to make a change, please type the category."
 		puts "Type the number of children you have."
 		app_children = gets.chomp.to_i
 		interior_dec[:children] = app_children
-	elsif input == "decor theme"
+	elsif input == "decor_theme"
 		puts "Type your decor theme"
 		app_theme = gets.chomp
 		interior_dec[:decor_theme] = app_theme
@@ -70,7 +70,7 @@ If you need to make a change, please type the category."
 		end
 		interior_dec[:mash] = app_mash
 	elsif input == "none"
-		
+
 
 	end
 p interior_dec
