@@ -51,15 +51,19 @@ If you need to make a change, please type the category."
 	elsif input == "age"
 		puts "Type your age"
 		app_age = gets.chomp.to_i
-		interior_dec[:age] = app_age
+		interior_dec[input.to_sym] = app_age
 	elsif input == "children"
 		puts "Type the number of children you have."
 		app_children = gets.chomp.to_i
-		interior_dec[:children] = app_children
+		interior_dec[input.to_sym] = app_children
 	elsif input == "decor_theme"
 		puts "Type your decor theme"
 		app_theme = gets.chomp
-		interior_dec[:decor_theme] = app_theme
+		interior_dec[input.to_sym] = app_theme
+	elsif input == "budget"
+		puts "Type your budget"
+		app_budget = gets.chomp
+		interior_dec[input.to_sym] = app_budget
 	elsif input == "MASH"
 		puts "Are you living your life based on the game MASH?"
 		app_mash = gets.chomp
@@ -68,9 +72,7 @@ If you need to make a change, please type the category."
 		else 
 			app_mash = false
 		end
-		interior_dec[:mash] = app_mash
+		interior_dec[input.to_sym] = app_mash
 	elsif input == "none"
-
-
 	end
 p interior_dec
