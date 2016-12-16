@@ -48,16 +48,29 @@ def name_changer(prevname)
   return newname.join(' ')
 end
 
-puts "Type a name to receive your mission name.
-Type 'quit' to exit"
-starter_name = gets.chomp
-if starter_name == 'quit'
-	p 'Thank you'
-else
-	mission_name = name_changer(starter_name)
-	starter_name.to_sym
-	p "#{mission_name} is your mission name"
-end
-hash = {}
-hash[starter_name]=mission_name
-p hash
+# puts "Type a name to receive your mission name.
+# Type 'quit' to exit"
+# starter_name = gets.chomp
+# if starter_name != 'quit'
+# 	mission_name = name_changer(starter_name)
+# 	starter_name.to_sym
+# 	p "#{mission_name} is your mission name"
+# end
+aliases={}
+hash_starter_name=""
+starter_name=""
+mission_name=""
+	loop do
+		puts "Type a name to receive your mission name.
+		Type 'quit' to exit"
+		starter_name = gets.chomp
+		if starter_name == "quit"
+			break
+		else mission_name = name_changer(starter_name)
+			hash_starter_name = starter_name.to_sym
+			p "#{mission_name} is your mission name."
+			
+		end 
+	aliases[hash_starter_name]=mission_name	
+	end
+aliases.each {|starter,mission| puts "#{mission} is the mission name for #{starter}"}
