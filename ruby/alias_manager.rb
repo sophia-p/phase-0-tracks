@@ -58,3 +58,6 @@ else
 	starter_name.to_sym
 	p "#{mission_name} is your mission name"
 end
+hash = {}
+hash[starter_name]=mission_name
+p hash
