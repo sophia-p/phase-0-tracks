@@ -10,6 +10,12 @@
 -use capitalize method to capitalize the first letters of the names
 -join name back together	
 =end
+
+=begin
+	-use puts to ask for input
+	-use gets.chomp to receive input 
+	-implement input and use name changer method
+=end
 def next_vowcon(oldlet) 
   vowel = ['a','e','i','o','u']
   rot_vow = vowel.rotate
