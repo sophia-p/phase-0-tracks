@@ -15,7 +15,8 @@
 	-use puts to ask for input
 	-use gets.chomp to receive input 
 	-implement input and use name changer method
-	-store data for when user quits
+	-store data for when user quits using hash keys(old name) and values(new names)
+
 =end
 def next_vowcon(oldlet) 
   vowel = ['a','e','i','o','u']
@@ -49,9 +50,11 @@ end
 
 puts "Type a name to receive your mission name.
 Type 'quit' to exit"
-mission_name = gets.chomp
-if mission_name == 'quit'
+starter_name = gets.chomp
+if starter_name == 'quit'
 	p 'Thank you'
 else
-	p "#{name_changer(mission_name)} is your mission name"
+	mission_name = name_changer(starter_name)
+	starter_name.to_sym
+	p "#{mission_name} is your mission name"
 end
