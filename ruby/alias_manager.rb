@@ -59,7 +59,7 @@ mission_name="" #will hold name after it goes through name changer
 		if starter_name == "quit"
 			break
 		else
-			mission_name = name_changer(starter_name) #but name through name changer, assign it to mission_name variable
+			mission_name = name_changer(starter_name) #put name through name changer, assign it to mission_name variable
 			hash_starter_name = starter_name.to_sym #change it to symbol so it can be a key
 			p "#{mission_name} is your mission name."
 			
