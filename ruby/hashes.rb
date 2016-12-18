@@ -1,4 +1,16 @@
 =begin
+Arrays: 
+You can use a variable to access an array.
+When accessing an index value that doesn't exist 
+in an array, you get nil
+	
+=end
+
+
+
+
+
+=begin
 -Prompt user for info on name (string), age (integer), 	
 number of children (integer), decor theme (string), budget (integer), based on game MASH (boolean)
 -Convert data to appropriate type and store data in hash
