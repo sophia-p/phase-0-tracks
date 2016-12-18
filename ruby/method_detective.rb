@@ -17,15 +17,20 @@
 # => "STOP! YOU’RE UNDER ARREST!"
 
 "the usual".concat(" suspects")
+"the usual" << " suspects"
 #=> "the usual suspects"
 
 " suspects".prepend("the usual")
 # => "the usual suspects"
 
 "The case of the disappearing last letter".chop
+string = "The case of the disappearing last letter"
+string = string[0...string.length-1]
 # => "The case of the disappearing last lette"
 
 "The mystery of the missing first letter"[1..-1]
+string2 = "The mystery of the missing first letter"
+string2 = string2[1..string.length-1]
 # => "he mystery of the missing first letter"
 
 "Elementary,    my   dear        Watson!".tr_s("  ", " ")
