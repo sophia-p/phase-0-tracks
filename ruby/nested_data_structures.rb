@@ -69,4 +69,9 @@ p "Average prices of courses at a fancy restaurant in London: #{restaurants[:fan
 p "Last year, the most used ingredients at the fish shack were #{restaurants[:fish_shack][:most_used_ingredients]}."
 p "This year, the most used ingredients are #{restaurants[:pizza][:most_used_ingredients].push("salmon","tuna")}."
 p "The location of the bistro has changed: #{restaurants[:bistro][:location]="Lyon, France"}"
-p "This "
+meal_cost = 0
+hash_fish = restaurants[:fish_shack][:average_prices]
+fish_price = hash_fish.values
+fish_price.each{|price| meal_cost += price}
+
+p "The average cost of a meal at the fish shack is $#{meal_cost}."
