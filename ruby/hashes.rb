@@ -76,7 +76,7 @@ If you need to make a change, please type the category."
 		puts "Type your budget"
 		app_budget = gets.chomp
 		interior_dec[input.to_sym] = app_budget
-	elsif input == "MASH"
+	elsif input == "MASH" || input == "mash"
 		puts "Are you living your life based on the game MASH?"
 		app_mash = gets.chomp
 		if app_mash == "yes".upcase || app_mash == "yes".capitalize! || app_mash == "yes"
@@ -84,7 +84,7 @@ If you need to make a change, please type the category."
 		else 
 			app_mash = false
 		end
-		interior_dec[input.to_sym] = app_mash
+		interior_dec[:mash] = app_mash
 	elsif input == "none"
 	end
 p interior_dec
