@@ -1,14 +1,16 @@
-# PET ------------------------
-# Dog
+# PET (Class) ------------------------
+# Puppy
 
-# CHARACTERISTICS ----------------
+# CHARACTERISTICS (Attributes) ----------------
 # Age: <1
-# Fur softness: high
+# Soft fur: yes
 # Floppy ears: yes
 # Name: varies
 # Color: varies
+# Weight: varies
 
-# BEHAVIOR -----------------------
+# BEHAVIOR (Methods) -----------------------
 # Run
-# Chew
+# Teeth
 # Sleep
+# Bark
