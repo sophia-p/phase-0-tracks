@@ -17,7 +17,7 @@ def create_list(string)
 	p shopping_list
 end
 
-test_list = create_list("carrots apples cereal pizza")
+# test_list = create_list("carrots apples cereal pizza")
 
 # Method to add an item to a list
 # input: list (will be passed shopping_list), item name, and optional quantity
@@ -28,7 +28,7 @@ def add_item(list, item_name, quantity=1)
 	p list
 end
 
-add_item(test_list,"potato")
+# add_item(test_list,"potato")
 
 
 
@@ -45,7 +45,7 @@ def remove_item(list,item_name)
 	p list
 end
 
-remove_item(test_list,"carrots")
+# remove_item(test_list,"carrots")
 
 
 # Method to update the quantity of an item
@@ -59,7 +59,7 @@ def update_quantity(list,item_name,quantity)
 	p list
 end
 
-update_quantity(test_list,"potato",7)
+# update_quantity(test_list,"potato",7)
 
 # Method to print a list and make it look pretty
 # input: list
@@ -70,4 +70,12 @@ def print_list(list)
 	list.each{|item, quantity| puts "#{item}: #{quantity}"}
 end
 
-print_list(test_list)
+# print_list(test_list)
+
+my_list = create_list("lemonade tomatoes onions ice-cream") #ice cream is hyphenated because we wouldn't know if it's for ice or cream
+update_quantity(my_list,"lemonade",2)
+update_quantity(my_list,"tomatoes",3)
+update_quantity(my_list,"ice-cream",4)
+remove_item(my_list,"lemonade")
+update_quantity(my_list,"ice-cream",1)
+print_list(my_list)
