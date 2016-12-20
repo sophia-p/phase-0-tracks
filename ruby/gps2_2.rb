@@ -14,7 +14,7 @@ def create_list(string)
 	array_list.each {|item|
 		shopping_list[item]=1
 	}
-	p shopping_list
+	return shopping_list #change p to return
 end
 
 # test_list = create_list("carrots apples cereal pizza")
@@ -25,7 +25,7 @@ end
 # output: the existing hash with new item and respective quantity added
 def add_item(list, item_name, quantity=1)
 	list[item_name] = quantity
-	p list
+	return list
 end
 
 # add_item(test_list,"potato")
@@ -42,7 +42,7 @@ end
 
 def remove_item(list,item_name)
 	list.delete(item_name)
-	p list
+	return list
 end
 
 # remove_item(test_list,"carrots")
@@ -56,7 +56,7 @@ end
 
 def update_quantity(list,item_name,quantity)
 	list[item_name] = quantity
-	p list
+	return list
 end
 
 # update_quantity(test_list,"potato",7)
