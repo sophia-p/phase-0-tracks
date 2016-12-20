@@ -62,6 +62,12 @@ end
 update_quantity(test_list,"potato",7)
 
 # Method to print a list and make it look pretty
-# input:
-# steps:
-# output:
+# input: list
+# steps: use .each to print key and values in a string
+# output: a list of strings
+
+def print_list(list)
+	list.each{|item, quantity| puts "#{item}: #{quantity}"}
+end
+
+print_list(test_list)
