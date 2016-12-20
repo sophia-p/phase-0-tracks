@@ -34,14 +34,32 @@ add_item(test_list,"potato")
 
 
 # Method to remove an item from the list
-# input:
-# steps:
-# output:
+# input: list, item
+# steps: find item on list provided and 
+#remove the item (the key) and its associated quantity
+# use delete_if on list
+# output: the updated list
+
+def remove_item(list,item_name)
+	list.delete(item_name)
+	p list
+end
+
+remove_item(test_list,"carrots")
+
 
 # Method to update the quantity of an item
-# input:
-# steps:
-# output:
+# input: list, item, and new quantity
+# steps: find item in list and set that key (the item name) equal
+# to new quantity (new value)
+# output: updated list
+
+def update_quantity(list,item_name,quantity)
+	list[item_name] = quantity
+	p list
+end
+
+update_quantity(test_list,"potato",7)
 
 # Method to print a list and make it look pretty
 # input:
