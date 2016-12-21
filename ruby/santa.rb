@@ -14,8 +14,7 @@ class Santa
 		@age = 0
 	end
 	def speak
-		p "Ho, ho, ho! Haaaappy holidays!"
-		
+		p "Ho, ho, ho! Haaaappy holidays!"	
 	end
 
 	def eat_milk_and_cookies(cookie_type)
@@ -23,23 +22,49 @@ class Santa
 		@age = 21
 	end
 
+	def celebrate_birthday
+		@age = @age + 1
+	end
+
+	def get_made_at(reindeer_name)
+		move_back = @reindeer_ranking.delete(reindeer_name)
+		@reindeer_ranking.push(move_back)
+	end
+
 	def signup
 		puts "gender: #{@gender}"
 		puts "ethnicity: #{@ethnicity}"
 		puts "favorite reindeer: #{@reindeer_ranking}"
 		puts "age: #{@age}"
+	end
 
+	#setter method
+	def gender=(new_gender)
+		@gender = new_gender
+	end
+
+	#getter method
+	def age
+		@age
+	end
+
+	def ethnicity
+		@ethnicity
 	end
 end
 
 # drunk_frat_boy = Santa.new
 # drunk_frat_boy.eat_milk_and_cookies("ginger snap")
 # drunk_frat_boy.speak
-# Chad = Santa.new("male", "white")
-# Chad.signup
-# Chad.eat_milk_and_cookies("winterdoodle")
-# Chad.speak
-# Chad.signup
+Chad = Santa.new("male", "white")
+Chad.signup
+Chad.eat_milk_and_cookies("winterdoodle")
+Chad.speak
+Chad.celebrate_birthday
+Chad.get_made_at("Dancer")
+Chad.gender = "too drunk"
+Chad.signup
+puts "#{Chad.ethnicity} #{Chad.age} year old Santa spotted at O'Mulligan's"
 # santas = []
 # santas << Santa.new("agender", "black")
 # santas << Santa.new("female", "Latino")
