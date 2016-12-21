@@ -56,15 +56,15 @@ end
 # drunk_frat_boy = Santa.new
 # drunk_frat_boy.eat_milk_and_cookies("ginger snap")
 # drunk_frat_boy.speak
-Chad = Santa.new("male", "white")
-Chad.signup
-Chad.eat_milk_and_cookies("winterdoodle")
-Chad.speak
-Chad.celebrate_birthday
-Chad.get_made_at("Dancer")
-Chad.gender = "too drunk"
-Chad.signup
-puts "#{Chad.ethnicity} #{Chad.age} year old Santa spotted at O'Mulligan's"
+santa = Santa.new("male", "white")
+santa.signup
+santa.eat_milk_and_cookies("winterdoodle")
+santa.speak
+santa.celebrate_birthday
+santa.get_made_at("Dancer")
+santa.gender = "too drunk"
+santa.signup
+puts "#{santa.ethnicity} #{santa.age} year old Santa spotted at O'Mulligan's"
 # santas = []
 # santas << Santa.new("agender", "black")
 # santas << Santa.new("female", "Latino")
