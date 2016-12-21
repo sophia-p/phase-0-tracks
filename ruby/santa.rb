@@ -40,12 +40,42 @@ end
 # Chad.eat_milk_and_cookies("winterdoodle")
 # Chad.speak
 # Chad.signup
-santas = []
-santas << Santa.new("agender", "black")
+# santas = []
+# santas << Santa.new("agender", "black")
 # santas << Santa.new("female", "Latino")
 # santas << Santa.new("bigender", "white")
 # santas << Santa.new("male", "Japanese")
 # santas << Santa.new("female", "prefer not to say")
 # santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
 # santas << Santa.new("N/A", "N/A")
-p santas
+# p santas
+
+santas = []
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
+len = example_ethnicities.length - 1
+
+# for i in 0..len
+# 	santas << Santa.new(example_genders[i], example_ethnicities[i])
+# 	i+=1
+# end
+# puts "Using a for loop"
+# p santas 
+
+# i = 0
+# while i <=len
+# 	santas << Santa.new(example_genders[i], example_ethnicities[i])
+# 	i+=1
+# end
+# p santas
+
+
+
+
+
+
+
+
+
+
