@@ -6,6 +6,8 @@
 # 	initialize (print "Initializing Santa instance ...")
 
 class Santa
+	attr_reader :age, :ethnicity
+	attr_accessor :gender
 	def initialize(gender,ethnicity)
 		p "Initializing Santa instance..."
 		@gender = gender
@@ -19,7 +21,6 @@ class Santa
 
 	def eat_milk_and_cookies(cookie_type)
 		p "That was a good #{cookie_type}!"
-		@age = 21
 	end
 
 	def celebrate_birthday
@@ -38,19 +39,19 @@ class Santa
 		puts "age: #{@age}"
 	end
 
-	#setter method
-	def gender=(new_gender)
-		@gender = new_gender
-	end
+	# #setter method
+	# def gender=(new_gender)
+	# 	@gender = new_gender
+	# end
 
-	#getter method
-	def age
-		@age
-	end
+	# #getter method
+	# def age
+	# 	@age
+	# end
 
-	def ethnicity
-		@ethnicity
-	end
+	# def ethnicity
+	# 	@ethnicity
+	# end
 end
 
 # drunk_frat_boy = Santa.new
@@ -64,7 +65,7 @@ santa.celebrate_birthday
 santa.get_made_at("Dancer")
 santa.gender = "too drunk"
 santa.signup
-puts "#{santa.ethnicity} #{santa.age} year old Santa spotted at O'Mulligan's"
+puts "#{santa.ethnicity}, #{santa.age} year old Santa spotted at O'Mulligan's"
 # santas = []
 # santas << Santa.new("agender", "black")
 # santas << Santa.new("female", "Latino")
@@ -78,15 +79,43 @@ puts "#{santa.ethnicity} #{santa.age} year old Santa spotted at O'Mulligan's"
 santas = []
 example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+len = example_ethnicities.length 
 
-len = example_ethnicities.length - 1
+len.times.each do |i|
+  santas << Santa.new(example_genders[i],example_ethnicities[i])
+end
+
+# len = example_ethnicities.length - 1
 
 # for i in 0..len
 # 	santas << Santa.new(example_genders[i], example_ethnicities[i])
 # 	i+=1
 # end
 # puts "Using a for loop"
-# p santas 
+# p santas
+
+# santas.each do |santa|
+# 	santa.celebrate_birthday
+# 	santa.celebrate_birthday
+# 	santa.signup
+# end
+
+# santas.each do |santa|
+# 	20.times do
+# 	santa.celebrate_birthday
+# 	end
+# 	santa.signup
+# end
+
+# santas.each do |santa|
+# 	p santa.age
+# end
+
+# santas.each do |santa|
+# 	santa.gender = "N/A"
+# 	santa.signup
+# end
+
 
 # i = 0
 # while i <=len
@@ -94,6 +123,19 @@ len = example_ethnicities.length - 1
 # 	i+=1
 # end
 # p santas
+
+20.times.each do |santa|
+	santas << Santa.new(example_genders.sample,example_ethnicities.sample)
+	end
+santas.each do |santa|
+	p santa.ethnicity
+	end
+santas.each do |santa|
+	age = rand(140)
+	p age
+end
+
+
 
 
 
