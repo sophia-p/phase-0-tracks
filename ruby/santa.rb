@@ -6,14 +6,14 @@
 # 	initialize (print "Initializing Santa instance ...")
 
 class Santa
-	attr_reader :ethnicity
-	attr_accessor :gender, :age
+	attr_reader :ethnicity, :age, :reindeer_ranking
+	attr_accessor :gender
 	def initialize(gender,ethnicity)
 		p "Initializing Santa instance..."
 		@gender = gender
 		@ethnicity = ethnicity
 		@reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-		@age = 0
+		@age = rand(140)
 	end
 	def speak
 		p "Ho, ho, ho! Haaaappy holidays!"	
@@ -125,8 +125,7 @@ end
 	santas << Santa.new(example_genders.sample,example_ethnicities.sample)
 	end
 santas.each do |santa|
-	santa.age = rand(140)
-	p "#{santa.ethnicity}, #{santa.gender}, #{santa.age} year old Santa seen drunk in Times Square."
+	p "#{santa.ethnicity}, #{santa.gender}, #{santa.age} year old Santa seen drunk in Times Square with an equally drunk #{santa.reindeer_ranking.sample}"
 	end
 
 
