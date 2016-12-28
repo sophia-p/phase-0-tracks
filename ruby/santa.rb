@@ -6,8 +6,8 @@
 # 	initialize (print "Initializing Santa instance ...")
 
 class Santa
-	attr_reader :age, :ethnicity
-	attr_accessor :gender
+	attr_reader :ethnicity
+	attr_accessor :gender, :age
 	def initialize(gender,ethnicity)
 		p "Initializing Santa instance..."
 		@gender = gender
@@ -54,9 +54,7 @@ class Santa
 	# end
 end
 
-# drunk_frat_boy = Santa.new
-# drunk_frat_boy.eat_milk_and_cookies("ginger snap")
-# drunk_frat_boy.speak
+
 santa = Santa.new("male", "white")
 santa.signup
 santa.eat_milk_and_cookies("winterdoodle")
@@ -91,7 +89,6 @@ end
 # 	santas << Santa.new(example_genders[i], example_ethnicities[i])
 # 	i+=1
 # end
-# puts "Using a for loop"
 # p santas
 
 # santas.each do |santa|
@@ -124,16 +121,13 @@ end
 # end
 # p santas
 
-20.times.each do |santa|
+50.times.each do |santa|
 	santas << Santa.new(example_genders.sample,example_ethnicities.sample)
 	end
 santas.each do |santa|
-	p santa.ethnicity
+	santa.age = rand(140)
+	p "#{santa.ethnicity}, #{santa.gender}, #{santa.age} year old Santa seen drunk in Times Square."
 	end
-santas.each do |santa|
-	age = rand(140)
-	p age
-end
 
 
 
