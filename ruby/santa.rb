@@ -121,7 +121,7 @@ end
 # end
 # p santas
 
-50.times.each do |santa|
+102.times.each do |santa|
 	santas << Santa.new(example_genders.sample,example_ethnicities.sample)
 	end
 santas.each do |santa|
