@@ -6,10 +6,15 @@
 # 	def self.yell_happily(words)
 # 		'OMG ' + words.upcase + ' YESSSSSS'
 # 	end
+	
+# 	def self.is_this_shout #self refers to the module you're on, in this case, Shout
+#     self
+#   end
 # end
 
 # p Shout.yell_angrily("Uuuuuugh")
 # p Shout.yell_happily("It's Caturday")
+# p Shout.is_this_shout == Shout
 
 module Shout
 	def yell(words)
