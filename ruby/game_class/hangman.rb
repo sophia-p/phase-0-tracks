@@ -3,7 +3,7 @@ class Hangman
 	attr_reader :dash_word
 	def initialize(given_word)
 		@given_word = given_word
-		@dash_word = @given_word.gsub(/\w/,'-')
+		@dash_word = @given_word.gsub(/\w/,'- ')
 	end
 
 	# def guesser
