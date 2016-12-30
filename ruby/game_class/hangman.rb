@@ -6,13 +6,18 @@ class Hangman
 	end
 
 	def guesser(guess_letter)
+		@guess_letter = guess_letter
 		if @given_word.include? @guess_letter
-			@dash_word = @dash_word.gsub('-',@guess_letter)
+			@dash_word = @dash_word.split(' ')
+			index = @given_word.index(@guess_letter)
+			@guessing_word = @dash_word.delete_at(index)
+			@guessing_word = @dash_word.insert(index, @guess_letter)
 		end
+		return @guessing_word.join(' ')
 	end
 
 	def check_word
-		@dash_word = @given_word.gsub(/\w/,'- ')
+		@dash_word = (@given_word.gsub(/\w/,'- ')).rstrip!
 	end
 
 end
@@ -25,6 +30,8 @@ game = Hangman.new(gets.chomp)
 
 puts "Hello, User Two, your word is #{game.check_word}. Start by guessing a letter"
 guess = game.guesser(gets.chomp)
+
+puts "Your word is now #{guess}"
 
 
 
