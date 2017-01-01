@@ -8,13 +8,17 @@ class Hangman
 
 	def guesser(guess_letter)
 		@guess_letter = guess_letter
-		if @given_word.include? @guess_letter
-			index = @given_word.index(@guess_letter)
-			@guessing_word = @dash_word.delete_at(index)
-			@guessing_word = @dash_word.insert(index, @guess_letter).join(' ')
-		else
-			@dash_word
+		i = 0
+		while i < @given_word.length
+			if @given_word[i] == @guess_letter
+		  		@guessing_word = @dash_word.delete_at(i)
+				@guessing_word = @dash_word.insert(i, @guess_letter).join(' ')
+			else
+			  @guessing_word
+			end
+			i +=1
 		end
+			return @guessing_word
 	end
 
 	def check_word
@@ -30,12 +34,17 @@ puts "Hello, User One, please type a word for User Two to guess."
 game = Hangman.new(gets.chomp)
 
  
-puts "Hello, User Two, your word is #{game.check_word}"
+puts "Hello, User Two, your word is #{game.check_word.join(' ')}"
 while game.guess_counter > 0
 	puts "Guess a letter"
 	guess = game.guesser(gets.chomp)
-	puts "#{guess}"
+	puts "#{guess}. You have #{game.guess_counter} guesses left."
 	game.guess_counter -=1
+	case
+	when @given_word == @guessing_word 
+		puts "You win!"
+		break
+	end
 end
 
 
