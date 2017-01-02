@@ -27,16 +27,13 @@ class Hangman
 	end
 
 	def if_same(word)
-		@word = word
-		if @word == @given_word.split('').join(' ')
+		@word = word   
+		if @word == @given_word.split('').join(' ') #word is a string separated by spaces for readability
 			@win = true
 		else
 			false
 		end
-	end
-
-
-	
+	end	
 
 end
 
@@ -64,7 +61,7 @@ end
 		
 # 	case
 # 	when game.if_same(guess)
-# 		puts "You have won with #{game.guess_counter} guesses to spare!"
+# 		puts "You have won with #{game.guess_counter + 1} guesses to spare!"
 # 		break
 # 	when !game.if_same(guess) && game.guess_counter < 0
 # 		puts "Sorry, the word was #{game.given_word}!"
