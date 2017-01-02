@@ -1,0 +1,12 @@
+-Game class
+-methods:
+	-takes user input for word
+	-puts word in dashes to match the length
+	-takes her input for guesses and places correct letters in the right spaces
+	-check to see if whole word was guessed
+	
+-driver code
+	-gets user input for word
+	-gets other user input for guesses and prints current state of word
+	-limits guesses to length of word (unless it is a repeated guess)
+	-congratulate for win, taunting message for loss
