@@ -23,7 +23,7 @@ class Hangman
 	end
 
 	def check_word
-		@dash_word = (@given_word.gsub(/\w/,'- ')).rstrip!.split(' ')
+		@dash_word = (@given_word.gsub(/\w/,'- ')).rstrip!.split(' ') #replace each letter of given word with a dash, separated by spaces for readability
 	end
 
 	def if_same(word)
@@ -49,22 +49,21 @@ end
 # while game.guess_counter >= 0
 # 	puts "Guess a letter"
 # 	letter = gets.chomp
-# 	guess = game.guesser(letter)
-# 	# puts "#{guess}. You have #{game.guess_counter} guesses left."
-# 	if repeat_guesses.include? letter
-# 	puts "Now for a different letter!"
-# 	else
-# 	puts "#{guess}. You have #{game.guess_counter} guesses left."
-# 	game.guess_counter -=1
-# 	repeat_guesses.push(letter)
-# 	end
+# 		guess = game.guesser(letter)
+# 		if repeat_guesses.include? letter
+# 		puts "Now for a different letter!"
+# 		else
+# 		puts "#{guess}. You have #{game.guess_counter} guesses left."
+# 		game.guess_counter -=1
+# 		repeat_guesses.push(letter)
+# 		end
 		
 # 	case
 # 	when game.if_same(guess)
 # 		puts "You have won with #{game.guess_counter + 1} guesses to spare!"
 # 		break
 # 	when !game.if_same(guess) && game.guess_counter < 0
-# 		puts "Sorry, the word was #{game.given_word}!"
+# 		puts "Sorry, the word was #{game.given_word}! It was on the tip of your tongue, wasn't it?"
 # 	end
 	
 # end
