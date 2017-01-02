@@ -25,10 +25,10 @@ class Hangman
 		@dash_word = (@given_word.gsub(/\w/,'- ')).rstrip!.split(' ')
 	end
 
-	def end_game
+	def end_game(word)
 		win = true
 		if @guessing_word.include? "-" == false
-			@guessing_word = @guessing_word.gsub(/\s+/, "")
+			word = word.gsub(/\s+/, "")
 		end
 		
 	end
@@ -56,7 +56,7 @@ while game.guess_counter > 0
 	end
 		
 	case
-	when game.end_game
+	when game.end_game(guess)
 		puts "#{game.guessing_word}You have won with #{game.guess_counter} guesses to spare!"
 		break
 	when word1 != word2&& game.guess_counter == 0
