@@ -1,13 +1,15 @@
+
 require_relative 'hangman'
 
 describe Hangman do 
 	let(:hangman) {Hangman.new("woof")}
-	let(:given_word) {"woof"}
 	let(:win) {false}
-	let(:dashword) {['-','-','-','-']}
+	let(:dash_word) {['-','-','-','-']}
 	
 	it "replaces dash with guessed letter" do
-		expect(hangman.guesser("f")).to eq "- - - f"
+		expect(hangman.guesser("w")).to eq("w - - -") 
+		#a test that for some reason doesn't pass. 
+		#It either doesn't like delete_at or join, saying they're being called on NilClass
 	end
 
 	it "takes a word and changes it to dashes" do
