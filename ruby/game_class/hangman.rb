@@ -1,9 +1,9 @@
 class Hangman
 	attr_accessor :given_word, :guess_letter, :guess_counter
-	attr_reader :dash_word
+	attr_reader :dash_word, :guessing_word
 	def initialize(given_word)
 		@given_word = given_word
-		@guess_counter = given_word.length
+		@guess_counter = given_word.length - 1
 	end
 
 	def guesser(guess_letter)
@@ -25,6 +25,14 @@ class Hangman
 		@dash_word = (@given_word.gsub(/\w/,'- ')).rstrip!.split(' ')
 	end
 
+	def end_game
+		win = true
+		if @guessing_word.include? "-" == false
+			@guessing_word = @guessing_word.gsub(/\s+/, "")
+		end
+		
+	end
+
 end
 
 
@@ -34,17 +42,29 @@ puts "Hello, User One, please type a word for User Two to guess."
 game = Hangman.new(gets.chomp)
 
  
-puts "Hello, User Two, your word is #{game.check_word.join(' ')}"
+puts "Hello, User Two, your word is #{game.check_word.join(' ')}. Given word is #{game.given_word}"
+repeat_guesses = []
 while game.guess_counter > 0
 	puts "Guess a letter"
 	guess = game.guesser(gets.chomp)
 	puts "#{guess}. You have #{game.guess_counter} guesses left."
+	if repeat_guesses.include? guess
+	puts "Now for a different letter!"
+	else
 	game.guess_counter -=1
-	case
-	when @given_word == @guessing_word 
-		puts "You win!"
-		break
+	repeat_guesses.push(guess)
 	end
+		
+	case
+	when game.end_game
+		puts "#{game.guessing_word}You have won with #{game.guess_counter} guesses to spare!"
+		break
+	when word1 != word2&& game.guess_counter == 0
+		puts "No more guesses left! The word was #{game.given_word}"
+		break
+
+	end
+	
 end
 
 
