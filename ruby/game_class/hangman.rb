@@ -1,9 +1,10 @@
 class Hangman
 	attr_accessor :given_word, :guess_letter, :guess_counter
-	attr_reader :dash_word, :guessing_word
+	attr_reader :dash_word, :guessing_word, :win, :word
 	def initialize(given_word)
 		@given_word = given_word
 		@guess_counter = given_word.length - 1
+		@win = false
 	end
 
 	def guesser(guess_letter)
@@ -14,7 +15,7 @@ class Hangman
 		  		@guessing_word = @dash_word.delete_at(i)
 				@guessing_word = @dash_word.insert(i, @guess_letter).join(' ')
 			else
-			  @guessing_word
+			  @guessing_word = @dash_word.join(' ')
 			end
 			i +=1
 		end
@@ -25,13 +26,17 @@ class Hangman
 		@dash_word = (@given_word.gsub(/\w/,'- ')).rstrip!.split(' ')
 	end
 
-	def end_game(word)
-		win = true
-		if @guessing_word.include? "-" == false
-			word = word.gsub(/\s+/, "")
+	def if_same(word)
+		@word = word
+		if @word == @given_word.split('').join(' ')
+			@win = true
+		else
+			false
 		end
-		
 	end
+
+
+	
 
 end
 
@@ -42,27 +47,27 @@ puts "Hello, User One, please type a word for User Two to guess."
 game = Hangman.new(gets.chomp)
 
  
-puts "Hello, User Two, your word is #{game.check_word.join(' ')}. Given word is #{game.given_word}"
+puts "Hello, User Two, your word is #{game.check_word.join(' ')}"
 repeat_guesses = []
-while game.guess_counter > 0
+while game.guess_counter >= 0
 	puts "Guess a letter"
-	guess = game.guesser(gets.chomp)
-	puts "#{guess}. You have #{game.guess_counter} guesses left."
-	if repeat_guesses.include? guess
+	letter = gets.chomp
+	guess = game.guesser(letter)
+	# puts "#{guess}. You have #{game.guess_counter} guesses left."
+	if repeat_guesses.include? letter
 	puts "Now for a different letter!"
 	else
+	puts "#{guess}. You have #{game.guess_counter} guesses left."
 	game.guess_counter -=1
-	repeat_guesses.push(guess)
+	repeat_guesses.push(letter)
 	end
 		
 	case
-	when game.end_game(guess)
-		puts "#{game.guessing_word}You have won with #{game.guess_counter} guesses to spare!"
+	when game.if_same(guess)
+		puts "You have won with #{game.guess_counter} guesses to spare!"
 		break
-	when word1 != word2&& game.guess_counter == 0
-		puts "No more guesses left! The word was #{game.given_word}"
-		break
-
+	when !game.if_same(guess) && game.guess_counter == 0
+		puts "Sorry, the word was #{game.given_word}!"
 	end
 	
 end
