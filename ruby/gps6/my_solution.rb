@@ -4,11 +4,15 @@
 # We spent [#] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
-require_relative 'state_data'
+# references the data in the  other file
+# require_relative is a subset of require for local files. 
+# require, when the files end in .rb, are loaded as a source file.
+# require gives access to more programming libraries like ruby gems created by the ruby community.
+require_relative 'state_data' 
 
 class VirusPredictor
+
+  #It initializes an instances of Virus Predictor and assigns the attributes to the 3 parameters for state, population, and population_density
 
   def initialize(state_of_origin, population_density, population)
     @state = state_of_origin
@@ -16,12 +20,15 @@ class VirusPredictor
     @population_density = population_density
   end
 
+  #calls two methods: predicted deaths and speed of spread with the respective attrbutes as parameters
+
   def virus_effects
     predicted_deaths(@population_density, @population, @state)
     speed_of_spread(@population_density, @state)
   end
 
   private
+  #make subsequent methods private, can't be called outside of class object
 
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
@@ -85,4 +92,4 @@ alaska.virus_effects
 
 #=======================================================================
 # Reflection Section
-Contact GitHub API Training Shop Blog About
+
