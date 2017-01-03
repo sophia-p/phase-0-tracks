@@ -27,9 +27,14 @@ class VirusPredictor
     speed_of_spread(@population_density, @state)
   end
 
-  private
   #make subsequent methods private, can't be called outside of class object
-
+  #what follows are helper methods
+  #make user experience simpler, makes interface simpler, makes code less complicated, protect private data
+  private
+ 
+  #this is a private method.
+  #calculates predicted deaths using population density, population, and prints that data with the state. Uses if statements
+  #for differences in the calculations and rounds the calculations down.
   def predicted_deaths(population_density, population, state)
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -47,6 +52,9 @@ class VirusPredictor
     print "#{@state} will lose #{number_of_deaths} people in this outbreak"
 
   end
+
+  #this is a private method
+  #Calculates speed of spread using population density and prints that calculation as part of a sentence following predicted_death's sentence
 
   def speed_of_spread(population_density, state) #in months
     # We are still perfecting our formula here. The speed is also affected
