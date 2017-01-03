@@ -36,6 +36,7 @@ class VirusPredictor
   #this is a private method.
   #calculates predicted deaths using population density, population, and prints that data with the state. Uses if statements
   #for differences in the calculations and rounds the calculations down.
+  
   def predicted_deaths
     # predicted deaths is solely based on population density
     if @population_density >= 200
@@ -54,6 +55,7 @@ class VirusPredictor
 
   end
 
+ 
   #this is a private method
   #Calculates speed of spread using population density and prints that calculation as part of a sentence following predicted_death's sentence
 
@@ -80,19 +82,19 @@ class VirusPredictor
 
 # for every decrease of 50 people, speed reduces by 0.5
 # x = -50. y = 0.5. For each x:y 2*x, 2*y
-  def range
-    if @population_density >= 200
-      @range = 0
-    elsif @population_density >= 150
-      @range = 1
-    elsif @population_density >= 100
-      @range = 2
-    elsif @population_density >= 50
-      @range = 3
-    else
-      @range = 4
-    end
-  end
+  # def range
+  #   if @population_density >= 200
+  #     @range = 0
+  #   elsif @population_density >= 150
+  #     @range = 1
+  #   elsif @population_density >= 100
+  #     @range = 2
+  #   elsif @population_density >= 50
+  #     @range = 3
+  #   else
+  #     @range = 4
+  #   end
+  # end
 end
 
 #=======================================================================
