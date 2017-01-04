@@ -6,9 +6,16 @@ and so on with concatenation. Assign the reversed string to a new variable*/
 function reverseString(string) {
 	var len= string.length -1;
 	var answerString = "";
-	for(var i = len; i >=0; i++){
+	for(var i = len; i >=0; i--){
 		answerString += string[i];
 	}
+	console.log(answerString)
 }
 
-answerString("hello")
+var revPup = reverseString("puppy")
+reverseString("tacocat")
+
+
+if ((12/4) == (9/3)) {
+	console.log(revPup)
+}
