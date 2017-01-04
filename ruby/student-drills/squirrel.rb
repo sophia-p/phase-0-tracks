@@ -33,8 +33,22 @@ class Squirrel
 	end
 
 	def eat_something
-		wake_up
-		store
+		p wake_up
+		eat_it = @hoard_locations.map do |food, num|
+			eat_it = food, num
+		end
+		snack = eat_it.sample
+		@snack_food = snack[0]
+		snack_num = rand(snack[1])
+		p "Eats #{snack_num} #{@snack_food}(s)"
+		@hoard_locations[@snack_food] -= snack_num
+		p sleep
+	end
+
+	def forget
+		p "#{@snack_food} has sprouted a new tree!"
+		@hoard_locations.reject! {|food, num| food == @snack_food}
+		p @hoard_locations
 	end
 end
 
@@ -48,8 +62,13 @@ p squirrel
 squirrel.store_food("acorns",3)
 squirrel.store_food("acorns",5)
 squirrel.store_food("walnuts", 9)
+squirrel.store_food("chestnuts", 7)
+squirrel.store_food("pinenuts", 8)
+squirrel.store_food("birdseed", 4)
+p squirrel
 squirrel.eat_something
 p squirrel
+squirrel.forget
 
 
 
