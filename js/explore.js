@@ -9,13 +9,12 @@ function reverseString(string) {
 	for(var i = len; i >=0; i--){
 		answerString += string[i];
 	}
-	console.log(answerString)
+	return answerString
 }
 
 var revPup = reverseString("puppy")
-reverseString("tacocat")
 
 
 if ((12/4) == (9/3)) {
-	console.log(revPup)
+	console.log(revPup + " is puppy backwards")
 }
