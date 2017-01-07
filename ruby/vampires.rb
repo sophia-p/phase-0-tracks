@@ -35,18 +35,35 @@ while employees > 0
 		end 
 	end
 
-	case # case statements
-	when (!yearmatch && (!order_g || !health))|| allergy == "sunshine"
-		puts "Probably a vampire."
-	when name == "Drake Cula" || name == "Tu Fang" ||name == "Nosferatu"
-		puts "Definitely a vampire"	
-	when yearmatch && (order_g || health)
-		puts "Probably not a vampire."
-	when !yearmatch && !order_g && !health
-		puts "Almost certainly a vampire."
-	else 
-		puts "Results inconclusive." # most general match last
+	# case # case statements
+	# when (!yearmatch && (!order_g || !health))|| allergy == "sunshine"
+	# 	puts "Probably a vampire."
+	# when name == "Drake Cula" || name == "Tu Fang" ||name == "Nosferatu"
+	# 	puts "Definitely a vampire"	
+	# when yearmatch && (order_g || health)
+	# 	puts "Probably not a vampire."
+	# when !yearmatch && !order_g && !health
+	# 	puts "Almost certainly a vampire."
+	# else 
+	# 	puts "Results inconclusive." # most general match last
+	# end
+	result = ""
+	if yearmatch && (order_g || health)
+		result = "Probably not a vampire."
 	end
+	if (!yearmatch && (!order_g || !health))|| allergy == "sunshine"
+		result = "Probably a vampire."
+	end
+	if !yearmatch && !order_g && !health
+		result = "Almost certainly a vampire."
+	end
+	if name == "Drake Cula" || name == "Tu Fang" ||name == "Nosferatu"
+		result = "Definitely a vampire."
+	end
+	if result.empty?
+		result = "Results inconclusive."
+	end
+	p result
 	employees -= 1 # decrease employee count after each survey taken
 	puts "Actually, never mind! What do these questions have to do with anything? 
 	Let's all be friends. #{order_g}, #{health}" 
