@@ -9,27 +9,23 @@ while employees > 0
 	puts "What year were you born?" # Question 3
 	yearmatch = true
 	byear = gets.chomp.to_i
-		if (2016-byear) == age # roughly check age by using current year
+	current_year = Time.now.year
+		if (current_year-byear) == age # roughly check age by using current year
 			yearmatch # yearmatch is true still
 		else
 			yearmatch = false
 		end
+
 	puts "Our company cafeteria serves garlic bread. 
 	Should we order some for you?" # Question 4
 		order_g = gets.chomp
-		if order_g == "yes".upcase || order_g == "yes".capitalize! || order_g == "yes"
-			order_g = true #set to true
-		else 
-			order_g = false
-		end
+		order_g = order_g.upcase == "YES"|| order_g.capitalize! == "Yes"|| order_g.downcase == "yes"
+	
 
 	puts "Would you like to enroll in the company's health insurance?" #Question 5
 		health = gets.chomp
-		if health == "yes".upcase || health == "yes".capitalize! || health == "yes"
-			health = true
-		else 
-			health = false
-		end
+		health = health.upcase == "YES" || health.capitalize! == "Yes"|| health.downcase == "yes"
+		
 	allergy = "" # Allergy variable, made accessible outside of loop for case statement
 	loop do
 		puts "List any allergies. Type 'done' when finished."
@@ -53,7 +49,7 @@ while employees > 0
 	end
 	employees -= 1 # decrease employee count after each survey taken
 	puts "Actually, never mind! What do these questions have to do with anything? 
-	Let's all be friends." 
+	Let's all be friends. #{order_g}, #{health}" 
 end
 
 
