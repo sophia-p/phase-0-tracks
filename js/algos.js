@@ -8,21 +8,38 @@ if next item is longer, continue iterating
 	*/
 
 
-function longestPhrase(array){
-  len = array.length;
+function longestPhrase(array){  //Still doesn't always work, but doesn't use built-in methods
+  var len = array.length;
   var longest ="";
+  var ans = "";
   var i = 0;
   while (i < len - 1){
     var longestSoFar = array[i+1];
     if(array[i].length > longestSoFar.length){
       longest = array[i];  
     }
-    i+=2;
+    i+=1;
   }
-  if (longest.length < array[len-1].length){
-    longest = array[len-1];
-  } 
-  console.log(longest);
+  if ((array[len-1].length) > longest.length){
+    ans = array[len-1];
+  } else if ((array[0].length) > longest.length){
+    ans = array[0];
+  } else {
+    ans = longest;
+  }
+  return ans;
+  
+}
+
+function maxPhrase(array){  //uses Math.max
+  var arrayOfLength =[]
+  for(var i=0; i<array.length; i++){
+    arrayOfLength.push(array[i].length);
+  }
+  var maxLen = Math.max(...arrayOfLength);
+  var indOfMax = arrayOfLength.indexOf(maxLen);
+  var ans = array[indOfMax];
+  return ans;
 }
 
 /*
@@ -30,19 +47,26 @@ Function that takes two objects and checks to see if they share at least one key
 ex. {name: "Steven", age: 54} and {name: "Tamir", age: 54} returns true
 Iterate through keys and check if keys match
 Then, if keys to match: check if values match
+  Push values of each pair to their own array
+  Use a loop to compare values to see if they are the same while at the same index as each other
 */
-function matchingKeyVal(obj1, obj2){
-
-  for(var i in obj1) {
-    var result;
-    if (obj1[i] === obj2[i]){ //Check if key-value is a match. If values are the same but keys are different, key in obj2 in undefined
-      result = true;
-    }
-    else{
-      result = false; //false if keys match, but none of the values of those keys match
-    }
+function matchingKeyVal(obj1,obj2){
+  var obj1Array=[];
+  var obj2Array = [];
+  var result;
+  for(var i in obj1){
+    obj1Array.push(obj1[i]); //if key in obj1 doesn't exist in obj2, value will be undefined
+    obj2Array.push(obj2[i]);
+  }
+ for(var j=0; j<obj1Array.length; j++){
+   if (obj1Array[j] === obj2Array[j]){
+     result = true;
+   } else {
+     result = false;
    }
-   console.log(result);
+   j ++;
+ }
+ console.log(result);
 }
 
 /*
@@ -60,14 +84,12 @@ print array
 function randomArrayOfStrings(n){
   var randArray = [];
   var alpha = "qwertyuiopasdfghjklzxcvbnm";
-
   for(var i=0; i <n; i++){
-    var start_alpha = Math.floor(Math.random() * (Math.floor(25) - Math.ceil(0) + 1)) + 1; //Put these in here so each string length is different through each iteration
+    var start_alpha = Math.floor(Math.random() * (Math.floor(25) - Math.ceil(1) + 1)) + 1; //Put these in here so each string length is different through each iteration
     var str_length = Math.floor(Math.random() * (Math.floor(10) - Math.ceil(1) + 1)) + 1;
     randArray.push(alpha.substr(start_alpha,str_length));
   }
-  console.log(str_length);
-  console.log(randArray);
+  return randArray;
 }
 
 
@@ -78,6 +100,10 @@ function randomArrayOfStrings(n){
 longestPhrase(["long phrase","longest phrase","longlonglonglonglonglonglonglong","longer phrase","even longer phrase"]);
 longestPhrase(["Dionne and I were both named after great singers of the past who now do infomercials","Isn't my house classic? The columns date all the way back to 1972","And my buns, they don't feel nothing like steel","Ms. Stoeger, my plastic surgeon doesn't want me doing any activity where balls fly at my nose"]);
 
+
+maxPhrase(["long phrase","longest phrase","longlonglonglonglonglonglonglong","longer phrase","even longer phrase"]);
+maxPhrase(["Dionne and I were both named after great singers of the past who now do infomercials","Isn't my house classic? The columns date all the way back to 1972","And my buns, they don't feel nothing like steel","Ms. Stoeger, my plastic surgeon doesn't want me doing any activity where balls fly at my nose"]);
+
 // console.log("Dionne and I were both named after great singers of the past who now do infomercials".length);
 // console.log("Isn't my house classic? The columns date all the way back to 1972".length);
 // console.log("And my buns, they don't feel nothing like steel".length);
@@ -87,10 +113,24 @@ console.log("Should be true:");
 matchingKeyVal({name: "Steven", age: 54},{name: "Steven", age: 50});
 console.log("Should be false:");
 matchingKeyVal({name: "Steven", age: 54},{surname: "Steven", age: 50});
-console.log("Should be true:");
+console.log("Should be false:");
 matchingKeyVal({name: "Steven", age: 54},{name: "Tamir", age: 54});
-console.log("Should be false:")
+console.log("Should be true:")
 matchingKeyVal({name: "Steven", age: 54},{name: "Steven", number: 54});
+
+
+/*
+Do 10 times: generate an array, print array, feed array to longest string function, prints that result
+loop from 1 to 10
+*/
+for(var i = 1; i<=10; i ++){
+  array_length = Math.floor(Math.random() * (Math.floor(6) - Math.ceil(3) + 1)) + 1;
+  randArray = randomArrayOfStrings(array_length);
+  console.log(randArray);
+  longStr = maxPhrase(randArray);
+  console.log(longStr);
+}
+
 
 
 
