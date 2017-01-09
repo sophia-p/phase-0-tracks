@@ -31,6 +31,13 @@ function longestPhrase(array){  //Still doesn't always work, but doesn't use bui
   
 }
 
+/*
+Push each string length to array
+Get biggest length of new array using Math.max
+Get index of longest length
+Use same index on original array
+*/
+
 function maxPhrase(array){  //uses Math.max
   var arrayOfLength =[]
   for(var i=0; i<array.length; i++){
