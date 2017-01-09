@@ -45,6 +45,31 @@ function matchingKeyVal(obj1, obj2){
    console.log(result);
 }
 
+/*
+Function that takes an integer n for length and builds an array of n length of strings
+These strings are of randomly varying length, of 1 to 10 characters
+Set an alphabet variable for strings
+Set an empty array to fill
+Use a for loop to count up to integer n
+Use Math.random for length of strings and for contents of string (getting a random start letter index from alpha
+and the random length value from Math.random of string length)
+push each string to array
+print array
+*/
+
+function randomArrayOfStrings(n){
+  var randArray = [];
+  var alpha = "qwertyuiopasdfghjklzxcvbnm";
+
+  for(var i=0; i <n; i++){
+    var start_alpha = Math.floor(Math.random() * (Math.floor(25) - Math.ceil(0) + 1)) + 1; //Put these in here so each string length is different through each iteration
+    var str_length = Math.floor(Math.random() * (Math.floor(10) - Math.ceil(1) + 1)) + 1;
+    randArray.push(alpha.substr(start_alpha,str_length));
+  }
+  console.log(str_length);
+  console.log(randArray);
+}
+
 
 
 
