@@ -28,9 +28,22 @@ function longestPhrase(array){
 /*
 Function that takes two objects and checks to see if they share at least one key-value pair
 ex. {name: "Steven", age: 54} and {name: "Tamir", age: 54} returns true
-Check if keys match
+Iterate through keys and check if keys match
 Then, if keys to match: check if values match
 */
+function matchingKeyVal(obj1, obj2){
+
+  for(var i in obj1) {
+    var result;
+    if (obj1[i] === obj2[i]){ //Check if key-value is a match. If values are the same but keys are different, key in obj2 in undefined
+      result = true;
+    }
+    else{
+      result = false; //false if keys match, but none of the values of those keys match
+    }
+   }
+   console.log(result);
+}
 
 
 
@@ -40,7 +53,25 @@ Then, if keys to match: check if values match
 longestPhrase(["long phrase","longest phrase","longlonglonglonglonglonglonglong","longer phrase","even longer phrase"]);
 longestPhrase(["Dionne and I were both named after great singers of the past who now do infomercials","Isn't my house classic? The columns date all the way back to 1972","And my buns, they don't feel nothing like steel","Ms. Stoeger, my plastic surgeon doesn't want me doing any activity where balls fly at my nose"]);
 
-// console.log("Dionne and I were both named after great singers of the past who now do infomercials".length)
-// console.log("Isn't my house classic? The columns date all the way back to 1972".length)
-// console.log("And my buns, they don't feel nothing like steel".length)
-// console.log("Ms. Stoeger, my plastic surgeon doesn't want me doing any activity where balls fly at my nose".length)
+// console.log("Dionne and I were both named after great singers of the past who now do infomercials".length);
+// console.log("Isn't my house classic? The columns date all the way back to 1972".length);
+// console.log("And my buns, they don't feel nothing like steel".length);
+// console.log("Ms. Stoeger, my plastic surgeon doesn't want me doing any activity where balls fly at my nose".length;
+
+console.log("Should be true:");
+matchingKeyVal({name: "Steven", age: 54},{name: "Steven", age: 50});
+console.log("Should be false:");
+matchingKeyVal({name: "Steven", age: 54},{surname: "Steven", age: 50});
+console.log("Should be true:");
+matchingKeyVal({name: "Steven", age: 54},{name: "Tamir", age: 54});
+console.log("Should be false:")
+matchingKeyVal({name: "Steven", age: 54},{name: "Steven", number: 54});
+
+
+
+
+
+
+
+
+
