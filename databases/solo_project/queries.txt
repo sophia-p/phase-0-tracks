@@ -12,3 +12,5 @@ sqlite> SELECT * FROM clothing;
 9|Petra vest|7500|2017-09-30|4
 
 2)
+
+sqlite> UPDATE clothing SET price=3500 WHERE id=4;
