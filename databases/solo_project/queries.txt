@@ -1,0 +1,14 @@
+1)
+
+sqlite> SELECT * FROM clothing;
+1|Cassandra sweater|10000|2017-09-30|4
+2|Lucy dress|8550|2017-03-30|2
+3|Hayden pant|8000|2017-06-30|3
+4|Veronica tank|4000|2017-03-30|2
+5|Becky skirt|7500|2017-01-30|1
+6|Rita sweater|9500|2017-06-30|3
+7|Clara coat|20000|2017-09-30|4
+8|Tara shirt|6500|2017-01-30|1
+9|Petra vest|7500|2017-09-30|4
+
+2)
