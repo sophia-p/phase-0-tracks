@@ -14,3 +14,61 @@ sqlite> SELECT * FROM clothing;
 2)
 
 sqlite> UPDATE clothing SET price=3500 WHERE id=4;
+
+3)
+
+sqlite> SELECT * FROM clothing, seasons WHERE clothing.seasons_id = seasons_id;
+1|Cassandra sweater|10000|2017-09-30|4|1|Spring
+1|Cassandra sweater|10000|2017-09-30|4|2|Summer
+1|Cassandra sweater|10000|2017-09-30|4|3|Fall
+1|Cassandra sweater|10000|2017-09-30|4|4|Winter
+2|Lucy dress|8550|2017-03-30|2|1|Spring
+2|Lucy dress|8550|2017-03-30|2|2|Summer
+2|Lucy dress|8550|2017-03-30|2|3|Fall
+2|Lucy dress|8550|2017-03-30|2|4|Winter
+3|Hayden pant|8000|2017-06-30|3|1|Spring
+3|Hayden pant|8000|2017-06-30|3|2|Summer
+3|Hayden pant|8000|2017-06-30|3|3|Fall
+3|Hayden pant|8000|2017-06-30|3|4|Winter
+4|Veronica tank|3500|2017-03-30|2|1|Spring
+4|Veronica tank|3500|2017-03-30|2|2|Summer
+4|Veronica tank|3500|2017-03-30|2|3|Fall
+4|Veronica tank|3500|2017-03-30|2|4|Winter
+5|Becky skirt|7500|2017-01-30|1|1|Spring
+5|Becky skirt|7500|2017-01-30|1|2|Summer
+5|Becky skirt|7500|2017-01-30|1|3|Fall
+5|Becky skirt|7500|2017-01-30|1|4|Winter
+6|Rita sweater|9500|2017-06-30|3|1|Spring
+6|Rita sweater|9500|2017-06-30|3|2|Summer
+6|Rita sweater|9500|2017-06-30|3|3|Fall
+6|Rita sweater|9500|2017-06-30|3|4|Winter
+7|Clara coat|20000|2017-09-30|4|1|Spring
+7|Clara coat|20000|2017-09-30|4|2|Summer
+7|Clara coat|20000|2017-09-30|4|3|Fall
+7|Clara coat|20000|2017-09-30|4|4|Winter
+8|Tara shirt|6500|2017-01-30|1|1|Spring
+8|Tara shirt|6500|2017-01-30|1|2|Summer
+8|Tara shirt|6500|2017-01-30|1|3|Fall
+8|Tara shirt|6500|2017-01-30|1|4|Winter
+9|Petra vest|7500|2017-09-30|4|1|Spring
+9|Petra vest|7500|2017-09-30|4|2|Summer
+9|Petra vest|7500|2017-09-30|4|3|Fall
+9|Petra vest|7500|2017-09-30|4|4|Winter
+
+
+4)
+
+sqlite> SELECT clothing.name, clothing.price,seasons.name FROM clothing JOIN seasons ON clothing.seasons_id = seasons. id ORDER BY seasons_id ASC;
+Becky skirt|7500|Spring
+Tara shirt|6500|Spring
+Lucy dress|8550|Summer
+Veronica tank|3500|Summer
+Hayden pant|8000|Fall
+Rita sweater|9500|Fall
+Cassandra sweater|10000|Winter
+Clara coat|20000|Winter
+Petra vest|7500|Winter
+
+5)
+
+sqlite> DELETE FROM clothing WHERE name="Petra vest";
