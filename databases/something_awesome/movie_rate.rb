@@ -34,7 +34,6 @@ movie_year = gets.chomp.to_i
 puts "And rate the movie out of 5:"
 movie_rating = gets.chomp.to_i
 
-movie_info = movie_title, movie_year, movie_rating
 def create_movie(db, title, year,rating)
-  db.execute("INSERT INTO movies (title, year, rating) VALUES (?, ?, ?)", [movie_info])
+  db.execute("INSERT INTO movies (title, year, rating) VALUES (?, ?, ?)", ['movie_title','movie_year','movie_rating'])
 end
