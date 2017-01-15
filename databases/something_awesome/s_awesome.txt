@@ -1,10 +1,27 @@
-# OPERATION KITTEN EXPLOSION!
+This program will
+Put movies in and rate them
+Maybe have another database with top 100 movies? Top 10?
+Title
+Year
+Rating
+True/False is they're top 100/10
+Movie quiz and rating?
 
-# talk about Object Relational Mapping (ORM)
+Fill databases with at least 10 movies
+	Movie quiz?
 
-# require gems
+create_table_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS movies(
+    id INTEGER PRIMARY KEY,
+    title VARCHAR(255),
+    year INT,
+    rating INT
+  )
+SQL
+
+--------------------------------
+
 require 'sqlite3'
-require 'faker' #use for fake data
 
 # create SQLite3 database 
 	# (the equivalent of sqlite3 kittens.db on command line)
