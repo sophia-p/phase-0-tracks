@@ -1,0 +1,34 @@
+2)
+sqlite> SELECT * FROM users, businesses, reviews WHERE reviews.user_id = users.id AND reviews.business_id = businesses.id;
+3|Angela|Jolie|2|Amir's Towing|1|4|So great!|2|3
+1|Bradford|Pitt|3|The Beagle Nightclub|2|2|Bad service|3|1
+4|Steven|Wonder|4|Lotus Yoga|3|0|OK|4|4
+2|Mandy|Kaling|1|Grundy Hollow Wedding Chapel|4|3|The bomb!|1|2
+
+
+3)
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users JOIN reviews ON users.id=reviews.user_id JOIN businesses ON business_id = reviews.business_id;
+Angela|Jolie|Grundy Hollow Wedding Chapel|4|So great!
+Angela|Jolie|Amir's Towing|4|So great!
+Angela|Jolie|The Beagle Nightclub|4|So great!
+Angela|Jolie|Lotus Yoga|4|So great!
+Bradford|Pitt|Grundy Hollow Wedding Chapel|2|Bad service
+Bradford|Pitt|Amir's Towing|2|Bad service
+Bradford|Pitt|The Beagle Nightclub|2|Bad service
+Bradford|Pitt|Lotus Yoga|2|Bad service
+Steven|Wonder|Grundy Hollow Wedding Chapel|0|OK
+Steven|Wonder|Amir's Towing|0|OK
+Steven|Wonder|The Beagle Nightclub|0|OK
+Steven|Wonder|Lotus Yoga|0|OK
+Mandy|Kaling|Grundy Hollow Wedding Chapel|3|The bomb!
+Mandy|Kaling|Amir's Towing|3|The bomb!
+Mandy|Kaling|The Beagle Nightclub|3|The bomb!
+Mandy|Kaling|Lotus Yoga|3|The bomb!
+
+4) WHERE business.id= id of business you want to select.
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars, reviews.comment FROM users JOIN reviews ON users.id=reviews.user_id JOIN businesses ON business_id = reviews.business_id WHERE businesses.id = 2;
+Angela|Jolie|Amir's Towing|4|So great!
+Bradford|Pitt|Amir's Towing|2|Bad service
+Steven|Wonder|Amir's Towing|0|OK
+Mandy|Kaling|Amir's Towing|3|The bomb!
+
