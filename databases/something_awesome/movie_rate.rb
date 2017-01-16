@@ -39,3 +39,27 @@ until done == 0 do
 	create_movie(db, movie_title, movie_year,movie_rating)
 	done -= 1
 end
+
+puts "Would you like to play a game? Y/N"
+game = gets.chomp
+if game == "Y"
+	i = 0
+	score = 0
+	while i < 3
+		puts "What year did #{movies[i][1]} come out?"
+		answer = gets.chomp.to_i
+		if answer == movies[i][2]
+			score += 10
+		end
+	i += 1
+	end
+	p score
+end
+
+
+
+
+
+
+
+
