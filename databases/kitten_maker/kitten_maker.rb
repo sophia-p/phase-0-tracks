@@ -68,7 +68,27 @@ end
 # puts kittens.class
 # p kittens
 # name and age are strings, not symbols
+kittens.each do |kitten|
+ puts "#{kitten['name']} is #{kitten['age']}"
+end
+
+# puts "Get a kitten. Type a number"
+# kit_num = gets.chomp.to_i
 # kittens.each do |kitten|
-#  puts "#{kitten['name']} is #{kitten['age']}"
+# 	if (kitten['name']).length == kit_num
+# 		return kitten['name']
+# 	end
 # end
+
+
+
+
+
+
+
+
+
+
+
+
 
