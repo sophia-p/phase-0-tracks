@@ -4,6 +4,8 @@ require 'sqlite3'
 # create SQLite3 database 
 	# store in variable
 db = SQLite3::Database.new("movies.db")
+db_high = SQLite3::Database.new("high_scores.db")
+db_high.results_as_hash = true
 
 # create the table if it doesn't already exist using fancy string delimiters
 create_table_cmd = <<-SQL
@@ -44,21 +46,49 @@ puts "Would you like to play a game? Y/N"
 game = gets.chomp
 if game == "Y"
 	i = 0
-	score = 0
+	my_score = 0
 	while i < 3
 		puts "What year did #{movies[i][1]} come out?"
 		answer = gets.chomp.to_i
 		if answer == movies[i][2]
-			score += 10
+			my_score += 10
 		end
 	i += 1
 	end
-	p score
+	my_score
+	puts "Your score was #{my_score}! Type your name to add it to the high scores!"
+	my_name = gets.chomp
 end
 
+# create high score database
+# db_high = SQLite3::Database.new("high_scores.db")
+create_hs_table_cmd = <<-SQL
+  CREATE TABLE IF NOT EXISTS high_scores(
+    id INTEGER PRIMARY KEY,
+    score INT,
+    name VARCHAR(255)
+  )
+SQL
 
+db_high.execute(create_hs_table_cmd)
 
+high_scores = db_high.execute("SELECT * FROM high_scores")
 
+def create_high_scores(db_high, score, name)
+  db_high.execute("INSERT INTO high_scores (score, name) VALUES (?,?)", [score, name])
+end
+
+if my_score > 10
+	create_high_scores(db_high, my_score, my_name)
+end
+
+puts "Would you like to see the high scores? Y/N"
+see_scores = gets.chomp
+if see_scores == 'Y'
+	high_scores.each do |score|
+		puts "#{score['name']} scored #{score['score']}"
+	end
+end
 
 
 
