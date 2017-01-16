@@ -27,13 +27,27 @@ movies = db.execute("SELECT * FROM movies")
 
 
 
-puts "Enter a movie title:"
-movie_title = gets.chomp
-puts "And its release year:"
-movie_year = gets.chomp.to_i
-puts "And rate the movie out of 5:"
-movie_rating = gets.chomp.to_i
+# puts "Enter a movie title:"
+# movie_title = gets.chomp
+# puts "And its release year:"
+# movie_year = gets.chomp.to_i
+# puts "And rate the movie out of 5:"
+# movie_rating = gets.chomp.to_i
+
 
 def create_movie(db, title, year,rating)
-  db.execute("INSERT INTO movies (title, year, rating) VALUES (?, ?, ?)", ['movie_title','movie_year','movie_rating'])
+  db.execute("INSERT INTO movies (title, year, rating) VALUES (?, ?, ?)", [title,year,rating])
+end
+
+puts "How many movies would you like to add?"
+done = gets.chomp.to_i
+until done == 0 do
+	puts "Enter a movie title:"
+	movie_title = gets.chomp
+	puts "And its release year:"
+	movie_year = gets.chomp.to_i
+	puts "And rate the movie out of 5:"
+	movie_rating = gets.chomp.to_i
+	create_movie(db, movie_title, movie_year,movie_rating)
+	done -= 1
 end
