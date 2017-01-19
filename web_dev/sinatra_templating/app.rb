@@ -7,6 +7,10 @@ set :public_folder, File.dirname(__FILE__) + '/static'
 db = SQLite3::Database.new("students.db")
 db.results_as_hash = true
 
+db_course = SQLite3::Database.new("courses.db")
+db_course.results_as_hash = true
+
+
 
 # show students on the home page
 get '/' do
@@ -14,8 +18,9 @@ get '/' do
   erb :home
 end
 
+# show courses on home page
 get '/' do
-  @courses = db.execute("SELECT * FROM courses")
+  @courses = db_course.execute("SELECT * FROM courses")
   erb :home
 end
 
@@ -23,8 +28,8 @@ get '/students/new' do
   erb :new_student
 end
 
-get '/students/courses' do
-  erb :courses
+get '/courses/new' do
+  erb :new_course
 end
 
 # create new students via
@@ -34,10 +39,9 @@ post '/students' do
   redirect '/'
 end
 
-# create new course form
-post '/students' do
-	db.execute("CREATE TABLE courses (title, level, id)")
-	db.execute("INSERT INTO courses (title, level, id) VALUES (?,?,?)", [params['title'], params['level'], params['id'].to_i])
+# create a new course via a form
+post '/courses' do
+	db_course.execute("INSERT INTO courses (title, level, id) VALUES (?,?,?)", [params['title'], params['level'], params['id'].to_i])
 	redirect '/'
 end
 
