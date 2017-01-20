@@ -1,8 +1,6 @@
 $(document).ready(function(){
-	$("button.left").click(function(){
-		$("p.left").animate({left: '150px'});
-	});
-
+	$("#horse_1").animate({left: '150px'}, "slow");
+	$("#horse_2").animate({left: '150px'}, "fast");
 });
 
 // $('button.talk').html('Arf');
