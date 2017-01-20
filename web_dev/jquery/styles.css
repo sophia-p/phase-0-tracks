@@ -3,9 +3,8 @@ body {
 	color: blue;
 }
 
-h1 {
-	position: relative;
-	color: green;
+p.left {
+	background-color: green;
+	position: absolute;
 }
-
 
