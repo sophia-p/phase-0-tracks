@@ -7,10 +7,17 @@
   <h1>Student Management System</h1>
   <p>Welcome to the student management system.</p>
   <p>Click <a href="students/new">here</a> to create a new student.</p>
+  <p>Click <a href="courses/new">here</a> to add a new course.</p>
   <ul>
     <% @students.each do |student| %>
       <li><%= student['name'] %>, <%= student['age'] %></li>
     <% end %>
   </ul>
+
+  <p>These are courses:</p>
+  <p><%= @courses %></p>
+
+<!-- @courses is not printing out in loop or as just @courses inbetween <%= %>
+ -->
 </body>
 </html>
