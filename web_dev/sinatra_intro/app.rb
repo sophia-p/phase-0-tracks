@@ -12,6 +12,14 @@ get '/' do
   "#{params[:name]} is #{params[:age]} years old."
 end
 
+get '/great_job/' do
+  if params[:name]
+    "Great job, #{params[:name]}!"
+  else
+    "Great job!"
+  end
+end
+
 # write a GET route with
 # route parameters
 get '/about/:person' do
@@ -26,6 +34,8 @@ end
 get '/contact' do
   "314 Ocean Drive.,<br>Neptune, California 90909"
 end
+
+
 
 # write a GET route that retrieves
 # all student data
