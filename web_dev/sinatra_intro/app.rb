@@ -69,5 +69,10 @@ get '/students_age/:age' do
   "#{student_age['name']} is #{student_age['age'].to_s}"
 end
 
+# Web app frameworks in Ruby include Ruby on Rails, Hanami, Padrino, and Volt
+# PostgreSQL (including Data Mapper and Active Record) and Mongo are among the other databases that ccan be used in Sinatra.
+# A web stack refers to everything requries to build a web site. This includes an "operating system, programming language, database software and a web server." 
+# (whatis.techtarget.com/definition/Web-stack)
+
 
 
