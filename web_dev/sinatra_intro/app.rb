@@ -35,6 +35,11 @@ get '/contact' do
   "314 Ocean Drive.,<br>Neptune, California 90909"
 end
 
+get '/:num_1/plus/:num_2' do
+  result = params[:num_1].to_i + params[:num_2].to_i
+  "#{params[:num_1]} plus #{params[:num_2]} is #{result}"
+end
+
 
 
 # write a GET route that retrieves
@@ -56,5 +61,13 @@ end
 
 get '/students/:id' do
   student = db.execute("SELECT * FROM students WHERE id=?", [params[:id]])[0]
-  student.to_s
+"#{student['id'].to_s} is #{student['name']}"
 end
+
+get '/students_age/:age' do
+  student_age = db.execute("SELECT * FROM students WHERE age=?", [params[:age]])[0]
+  "#{student_age['name']} is #{student_age['age'].to_s}"
+end
+
+
+
