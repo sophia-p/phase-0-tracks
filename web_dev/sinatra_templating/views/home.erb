@@ -15,9 +15,12 @@
   </ul>
 
   <p>These are courses:</p>
-  <p><%= @courses %></p>
+  <ul>
+    <% @courses.each do |course| %>
+      <li><%= course['title'] %>, <%= course['level'] %>, <%= course['id'] %></li>
+    <% end %>
+  </ul>
 
-<!-- @courses is not printing out in loop or as just @courses inbetween <%= %>
- -->
+
 </body>
 </html>

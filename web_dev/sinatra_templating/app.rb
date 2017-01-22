@@ -11,18 +11,16 @@ db_course = SQLite3::Database.new("courses.db")
 db_course.results_as_hash = true
 
 
-
-# show students on the home page
+# Use get '/' do loop once for creating index in Sinatra
+  # show students on the home page
+  # show courses on home page 
 get '/' do
   @students = db.execute("SELECT * FROM students")
-  erb :home
-end
-
-# show courses on home page
-get '/' do
   @courses = db_course.execute("SELECT * FROM courses")
   erb :home
 end
+
+
 
 get '/students/new' do
   erb :new_student
